@@ -3,6 +3,7 @@
     "dev": "nodemon index.js",
     "db:migrate": "node migrate.js",
     "db:seed": "node seed.js",
+    "make:crud": "node ./node_modules/wild-js-crud/index.js",
     "build": "node migrate.js",
     "start": "node index.js",
     "test": "jest"
@@ -10,7 +11,8 @@
   "dependencies": {
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
-    "mysql2": "^3.5.2"
+    "mysql2": "^3.5.2",
+    "wild-js-crud": "^1.2.1"
   },
   "devDependencies": {
     "@faker-js/faker": "^8.0.2",
