@@ -2,6 +2,15 @@ const express = require("express");
 
 const router = express.Router();
 
+const articleControllers = require("./controllers/articleControllers");
+// const validateArticle = require("./validators/validateArticle");
+
+router.get("/articles", articleControllers.browse);
+router.get("/articles/:id", articleControllers.read);
+// router.post("/articles", validateArticle, articleControllers.add);
+// router.put("/articles/:id", validateArticle, articleControllers.edit);
+// router.delete("/articles/:id", articleControllers.destroy);
+
 /* ************************************************************************* */
 // Define Your API Routes Here
 /* ************************************************************************* */

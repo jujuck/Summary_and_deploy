@@ -36,6 +36,28 @@ const seed = async () => {
     // Wait for all the insertion queries to complete
     await Promise.all(queries);
 
+    const queriesArticle = [];
+
+    // Insert fake data into the 'article' table
+    for (let i = 0; i < 25; i += 1) {
+      queriesArticle.push(
+        database.query(
+          "insert into article(title, summary, content, stars, is_published, created_at) values (?, ?, ?, ?, ?, ?)",
+          [
+            faker.lorem.words({ min: 1, max: 3 }),
+            faker.lorem.paragraph(),
+            faker.lorem.paragraphs(3).split("\n").join(" "),
+            faker.number.int(1000),
+            faker.datatype.boolean() ? 0 : 1,
+            faker.date.anytime(),
+          ]
+        )
+      );
+    }
+
+    // Wait for all the insertion queries to complete
+    await Promise.all(queriesArticle);
+
     // Close the database connection
     database.end();
 
