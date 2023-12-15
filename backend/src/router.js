@@ -19,5 +19,8 @@ router.get("/items/:id", itemControllers.read);
 router.post("/items", itemControllers.add);
 
 /* ************************************************************************* */
+const contactControllers = require("./controllers/contactControllers");
+
+router.post("/contact", contactControllers.send);
 
 module.exports = router;
